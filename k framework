@@ -1,0 +1,19 @@
+http://www.kframework.org/index.php/Main_Page
+
+K is a rewrite-based executable semantic framework in which programming languages, 
+type systems and formal analysis tools can be defined using configurations, computations and rules. 
+Configurations organize the state in units called cells, which are labeled and can be nested. 
+Computations carry computational meaning as special nested list structures sequentializing computational 
+tasks, such as fragments of program. Computations extend the original language abstract syntax. 
+K (rewrite) rules make it explicit which parts of the term they read-only, write-only, read-write, 
+or do not care about. This makes K suitable for defining truly concurrent languages even in the presence 
+of sharing. Computations are like any other terms in a rewriting environment: they can be matched, moved 
+from one place to another, modified, or deleted. This makes K suitable for defining control-intensive 
+features such as abrupt termination, exceptions or call/cc.
+
+一个基于重写的可执行语义框架，其中可以使用配置，计算和规则来定义编程语言，类型系统和形式分析工具。 
+配置以称为单元的单元组织状态，这些单元被标记并且可以嵌套。 计算将计算意义作为特殊的嵌套列表结构来
+序列化计算任务，例如程序片段。 计算扩展了原始语言的抽象语法。 K（重写）规则明确了它们只读，
+只写，读写或不关心的术语的哪些部分。 这使得K适用于定义真正的并行语言，即使在共享的情况下。 
+计算就像在重写环境中的任何其他术语：它们可以匹配，从一个地方移动到另一个地方，修改或删除。 
+这使得K适用于定义控制密集型功能，如突发终止，异常或调用。
