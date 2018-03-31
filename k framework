@@ -17,3 +17,5 @@ features such as abrupt termination, exceptions or call/cc.
 只写，读写或不关心的术语的哪些部分。 这使得K适用于定义真正的并行语言，即使在共享的情况下。 
 计算就像在重写环境中的任何其他术语：它们可以匹配，从一个地方移动到另一个地方，修改或删除。 
 这使得K适用于定义控制密集型功能，如突发终止，异常或调用。
+
+http://www.kframework.org/index.php/K_Overview
