@@ -1,0 +1,115 @@
+%baseclass-preinclude "semantics.h"
+%lsp-needed
+
+%token ONE TWO THREE DOZEN 
+%token AFEW
+%token FOUR FIVE
+%token BURGER SANDWICH MUFFIN CAKE
+%left PLUS
+
+ 
+
+%union{
+    food2* food_info;
+    int amount;
+}
+ 
+%type<amount> amount;
+
+%type<food_info> food2;
+ 
+
+%%
+
+
+start:
+
+    food2
+    {
+        if(HAS_TO_BE_GLUTEN_FREE && !$1->gluten_free) {
+            error("The menu you described may contain gluten!");
+        }
+        if($1->calories > 20) {
+            error("Lactose content exceeds the limit");
+        }
+        if($1->type == sweet) {
+            std::cout << "OK, that's gonna be " << $1->calories << " gramms of lactose" << std::endl;
+        }
+        else if($1->type == salty) {
+            std::cout << "OK, that's gonna be " << $1->calories << " gramms of lactose" << std::endl;
+        }
+        else {
+            std::cout << "OK, that's gonna be " << $1->calories << " gramms of lactose" << std::endl;
+        }
+	   
+    }
+;
+
+ 
+food2:
+    amount BURGER
+    {
+        $$ = new food2($1*0, salty, false);
+	 
+    }
+|
+    amount SANDWICH
+    {
+        $$ = new food2($1*2, salty, true);
+		 
+    }
+|
+    amount MUFFIN
+    {
+        $$ = new food2($1*4, sweet, false);
+		 
+    }
+|
+    amount CAKE
+    {
+	if($1 > 1)
+	{
+	    error("You cannot eat more than one cake at once!");
+	}
+        $$ = new food2($1*6, sweet, false);
+		 
+    }
+|
+    food2 PLUS food2
+    {
+        if(($1->type == sweet || $1->type == mixed) && $3->type == salty) {
+            error("Really? No, you should not eat salty after the sweet...");
+        }
+        if($1->type == $3->type) {
+            $$ = new food2($1->calories + $3->calories, $1->type, $1->gluten_free && $3->gluten_free);
+			 
+        }
+        else {
+            $$ = new food2($1->calories + $3->calories, mixed, $1->gluten_free && $3->gluten_free);
+	 
+        }
+    }
+	
+	
+	
+	
+	
+	
+	
+;
+
+amount:
+    ONE     { $$ = 1; }
+|
+    TWO     { $$ = 2; }
+|
+    THREE   { $$ = 3; }
+|
+    FOUR    { $$ = 4; }
+|
+    FIVE    { $$ = 5; }
+|
+    AFEW   { $$ = 3; }
+|
+    DOZEN   { $$ = 12; }
+;
