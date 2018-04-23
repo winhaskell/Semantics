@@ -1,0 +1,30 @@
+Introduction
+
+High-level overview of goals and challenges in formal syntax and semantics definitions of programming languages. 
+Comparison with similar problems in natural languages. Connection of formal semantics and formal verification. 
+Question of semantic equivalence and its practical uses. Motivating examples in various programming languages 
+indicating the difficulty and complexity of semantics.
+
+From syntax to semantics
+Clarification of what we mean by context-free syntax, static semantics and dynamic semantics. Context-free, 
+context-dependent languages and grammars, Chomsky hierarchy. Syntax definitions given with context-free grammars 
+(in formal notation and in BNF), deterministic and ambiguous grammars, syntactic analysis (parsing) and syntax trees 
+(structure trees). Concept of static semantics of programming languages. Concrete syntax and abstract syntax.
+
+Attribute grammars
+Context-dependent languages defined with attribute grammars. Well-formed attribute grammars, S-ATG and L-ATG, 
+their connections to parsing techniques. Examples to syntax tree decorations. Syntax-directed translation (translational semantics) 
+and dynamic semantics in ATG in general. Implementations of attribute grammars (and therefore context-dependent languages) in Bisonc++.
+
+Operational semantics
+Abstract syntax of simple expressions and imperative languages. Program and memory state, configuration, 
+transition system. Inference rules and inductive definitions. Small-step and big-step definitions. Derivation 
+and configuration sequences. Stuck configurations. Infinite derivation sequences. The semantic function or relation. 
+(Simple theorems and their proofs by induction on the length of derivation sequence.) Implementation of
+small-step semantics with embedding and in the K framework. Big-step semantics and its differences from small-step. 
+Derivations in big-step style.
+
+Denotational semantics
+TO BE REFINED. Semantic domain and semantic function. Denotations of simple imperative programs, methods and notations. 
+Semantics of loops and recursive constructs, basics of fixed-point theory. Continuation semantics and its use cases. 
+Implementation of denotational semantics in pure functional languages.
