@@ -82,3 +82,9 @@ Running command: krun example.while
 ---------------------------------------------------------
 
 
+x = 99 ; z = 0 ; y = 0 ; while x < 100 do ( y = y + 100 ; x = x + 100 ; z = x+y)
+
+Running command: krun example.while
+<T> <k> . </k> <state> x |-> 199 z |-> 299 y |-> 100 </state> </T>
+----- End of process output.
+---------------------------------------------------------
