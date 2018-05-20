@@ -1,0 +1,101 @@
+while.k
+--------------------------------------------------------------------------------------------------
+module WHILE-SYNTAX
+
+  syntax AExp ::= Int
+                | Id
+                | AExp "/" AExp               [left, seqstrict]
+                > AExp "+" AExp               [left, seqstrict]
+                | AExp "-" AExp               [left, seqstrict]
+		            | AExp "*" AExp               [left, seqstrict]
+                | "-" AExp [strict]
+                | "(" AExp ")" [bracket]
+
+  syntax BExp ::= Bool
+                 | AExp "<" AExp              [seqstrict]
+                 | AExp "is equal to" AExp    [seqstrict]
+                 | Id "<" AExp              [seqstrict]
+                 | "!" BExp                   [strict]
+                 > BExp "&&" BExp             [left, strict(1)]
+                 | "(" BExp ")"               [bracket]
+
+  syntax Stmt ::= "skip"
+                 | "swap" Id "and" Id
+                 | Id "=" AExp                [strict(2)]
+                 | "if" BExp "then" Stmt
+                             "else" Stmt      [strict(1)]
+                 | "while" BExp "do" Stmt
+                 | "repeat" Stmt "until" BExp
+	               | "for" Id "=" AExp "to" AExp "while" BExp "do" Stmt
+                 | "until" BExp "do" Stmt
+                 > Stmt ";" Stmt              [left]
+                 | "(" Stmt ")"               [bracket]
+
+endmodule
+
+module WHILE
+  imports WHILE-SYNTAX
+
+  syntax KResult ::= Int | Bool
+
+  configuration <T>
+                  <k> $PGM:Stmt </k>
+                  <state> .Map </state>
+                </T>
+
+// AExp
+  rule <k> X:Id => I ... </k> <state>... X |-> I ...</state>
+  rule I:Int / J:Int => I /Int J
+  rule I:Int * J:Int => I *Int J
+  rule I:Int + J:Int => I +Int J
+  rule I:Int - J:Int => I -Int J
+  rule - I:Int => 0 -Int I
+
+// BExp
+  rule I1 is equal to I2 => I1 ==Int I2
+ 
+  rule I1 < I2 => I1 <Int I2
+  rule ! T => notBool T
+  rule true && B => B
+  rule false && _ => false
+
+// Stmt
+  rule skip => . [structural]
+  rule <k> X = I:Int => . ...</k> <state> M:Map => M X|->I </state> when notBool (X in keys(M))
+  rule <k> X = I:Int => . ...</k> <state>... X |-> (_ => I) ...</state>
+  rule <k> swap A and B => . ... </k> <state> ... A |-> (I => J)  B |-> (J => I) ... </state>
+  rule S1:Stmt ; S2:Stmt => S1 ~> S2  [structural]
+  rule if true then S:Stmt else _ => S
+  rule if false then _ else S => S
+  rule while B do S => if B then ( S ; while B do S ) else skip [structural]
+  rule repeat S until B => S ; if B then skip else repeat S until B [structural]
+  rule until B do S => if B then skip else ( S ; until B do S ) [structural]
+  rule for X = I to M while B do S => X = I ; if B && X < M then (S; X = X+1 ; while (B && X < M) do (S;X = X+1)) else skip [structural]
+
+endmodule
+
+--------------------------------------------------------------------------------------------------
+test.while
+
+n = 10 ;
+fact = 1 ;
+for i = 1 to n + 1 while fact < 1000 do
+ fact = fact * i
+
+--------------------------------------------------------------------------------------------------
+ Running command: krun test.while
+ 
+<T> <k> . </k> <state> fact |-> 5040 n |-> 10 i |-> 8 </state> </T>
+----- End of process output.
+
+--------------------------------------------------------------------------------------------------
+n = 10 ;
+fact = 1 ;
+for i = 1 to n + 1 while fact < 600 do
+ fact = fact * i
+ 
+ Running command: krun tets.while
+<T> <k> . </k> <state> fact |-> 720 n |-> 10 i |-> 7 </state> </T>
+----- End of process output.
+---------------------------------------------------------------------------------------------------
+
