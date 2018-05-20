@@ -7,7 +7,7 @@ module WHILE-SYNTAX
                 | AExp "/" AExp               [left, seqstrict]
                 > AExp "+" AExp               [left, seqstrict]
                 | AExp "-" AExp               [left, seqstrict]
-		            | AExp "*" AExp               [left, seqstrict]
+	        | AExp "*" AExp               [left, seqstrict]
                 | "-" AExp [strict]
                 | "(" AExp ")" [bracket]
 
@@ -26,7 +26,7 @@ module WHILE-SYNTAX
                              "else" Stmt      [strict(1)]
                  | "while" BExp "do" Stmt
                  | "repeat" Stmt "until" BExp
-	               | "for" Id "=" AExp "to" AExp "while" BExp "do" Stmt
+	         | "for" Id "=" AExp "to" AExp "while" BExp "do" Stmt
                  | "until" BExp "do" Stmt
                  > Stmt ";" Stmt              [left]
                  | "(" Stmt ")"               [bracket]
