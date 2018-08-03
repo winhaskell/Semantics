@@ -1,0 +1,19 @@
+What is Semantics
+
+https://web.eecs.umich.edu/~rthomaso/documents/general/what-is-semantics.html
+
+Explanation: This document is an attempt to make an arcane and not very well understood area of inquiry intelligible to
+someone who knows no logic or linguistics. It was originally written for an encyclopedia that wanted something accessible 
+even to a pre-high-school audience. But it doesn't appear in any encyclopedia, because I wasn't willing to write something
+to the editors' specifications, and they weren't willing to change their specifications. This episode is yet another example
+of how bad a job semanticists have done of making even well-informed laymen aware of what the issues are in the field.
+
+Semantics is the study of the meaning of linguistic expressions. The language can be a natural language, such as English or
+Navajo, or an artificial language, like a computer programming language. Meaning in natural languages is mainly studied by
+linguists. In fact, semantics is one of the main branches of contemporary linguistics. Theoretical computer scientists and
+logicians think about artificial languages. In some areas of computer science, these divisions are crossed. In machine translation, 
+for instance, computer scientists may want to relate natural language texts to abstract representations of their meanings; to do this,
+they have to design artificial languages for representing meanings.
+
+
+
