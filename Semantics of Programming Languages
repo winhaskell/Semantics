@@ -1,0 +1,17 @@
+Semantics of Programming Languages
+
+http://fsl.cs.illinois.edu/index.php/Semantics_of_Programming_Languages
+
+One of the most effective ways to define a programming language or paradigm is as an executable formal specification.
+This has at least two advantages:
+
+(1) one can execute programs, and
+(2) one can formally reason about programs and programming languages.
+
+Rewriting Logic Semantics
+K
+Generic First-Order Logic (GFOL)
+
+
+K framework
+https://github.com/kframework
