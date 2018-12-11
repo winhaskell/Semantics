@@ -19,3 +19,21 @@ features such as abrupt termination, exceptions or call/cc.
 这使得K适用于定义控制密集型功能，如突发终止，异常或调用。
 
 http://www.kframework.org/index.php/K_Overview
+
+
+K Framework
+https://runtimeverification.com/blog/k-framework-an-overview/
+
+Defining Languages in K
+
+K is a rewrite-based executable semantic framework in which programming languages, 
+type systems and formal analysis tools can be defined using configurations, computations and rules. 
+Configurations organize the state in units called cells, which are labeled and can be nested. 
+Computations carry computational meaning as special nested list structures sequentializing computational tasks, 
+such as fragments of program. K (rewrite) rules make it explicit which parts of the term they read-only, 
+write-only, read-write, or do not care about. This makes K suitable for defining truly concurrent languages 
+even in the presence of sharing. Computations are like any other terms in a rewriting environment: they can 
+be matched, moved from one place to another, modified, or deleted. This makes K suitable for defining control-intensive 
+features such as abrupt termination, exceptions, concurrency or call/cc.
+
+
