@@ -1,0 +1,11 @@
+Syntax
+http://csci.csusb.edu/dick/samples/prolog.syntax.html
+
+Syntax of the Logic Programming language Prolog
+
+Introduction
+The syntax of Prolog is deceptively simple. The User inputs a series of predicates 
+that have three different meanings - facts to be stored, goals to be searched for(queries), 
+or commands(directives) which do one thing. There is also a special kind of rule called a clause 
+which defines conditions underwhich a fact can be true.
+
