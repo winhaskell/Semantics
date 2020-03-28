@@ -1,0 +1,20 @@
+https://personal.utdallas.edu/~hamlen/cs6371sp10.html
+
+Course Summary
+This course will cover functional and logic programming, concepts of programming language design, 
+and formal reasoning about programs and programming languages. The following are the course learning objectives:
+
+Functional Programming (ML/OCaml)
+Logic programming
+Small-step and large-step operational semantics
+Denotational semantics
+Fixpoints, fixpoint induction
+Axiomatic semantics
+Type theory
+Untyped and typed lambda calculi
+Partial evaluation, non-determinism
+
+
+
+
+
