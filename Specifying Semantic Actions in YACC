@@ -2,7 +2,12 @@ Specifying Semantic Actions in YACC
 
 https://www.cs.williams.edu/~tom/courses/434/outlines/lect12_3.html
 
+
 Building Scanners with Lex
 
 https://www.cs.williams.edu/~tom/courses/434/outlines/lect12_4.html
 
+
+Write text parsers with yacc and lex
+
+https://developer.ibm.com/tutorials/au-lexyacc/
